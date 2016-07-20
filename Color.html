@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script>
+    angular
+      .module("color", [])
+      .controller("controller", function($scope){
+        $scope.bodyColor = localStorage.color;
+        $scope.$watch("bodyColor", function(val){
+          localStorage.color = val;
+        });
+      });
+  </script>
+</head>
+<body ng-app="color" ng-controller="controller" style='background-color: {{bodyColor}}'>
+  <input type="color" ng-model="bodyColor">
+</body>
+</html>
